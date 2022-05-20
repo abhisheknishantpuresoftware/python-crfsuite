@@ -24,7 +24,7 @@ jobs:
       - name: "Build wheels"
         uses: "pypa/cibuildwheel@v2.3.1"
         env:
-          CIBW_ARCHS_LINUX: auto aarch64
+          CIBW_ARCHS_LINUX: ${{ matrix.arch }}
           CIBW_SKIP: "pp*"  # FIXME
           CIBW_BEFORE_BUILD: "pip install -U cython && ./update_cpp.sh"
           CIBW_BEFORE_BUILD_WINDOWS: "pip install -U cython && update_cpp.sh"
